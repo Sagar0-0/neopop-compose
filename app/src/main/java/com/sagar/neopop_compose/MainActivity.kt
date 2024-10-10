@@ -35,8 +35,8 @@ fun GreetingPreview() {
         Column(
             modifier = Modifier.padding(10.dp)
         ) {
-            NeoPopButton(onClick = {}) {
-                Text(text = "Pay now", color = Color.White)
+            NeoPop3DPressableContent(onClick = {}) {
+                Text(text = "Pay now", color = Color.Black)
             }
         }
 

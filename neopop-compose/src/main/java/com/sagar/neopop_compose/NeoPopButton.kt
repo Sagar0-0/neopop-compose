@@ -26,6 +26,21 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 
+/**
+ * Creates a NeoPop style button with a subtle drop shadow effect.
+ *
+ * @param modifier A modifier to apply to the button.
+ * @param buttonDropHeight The height of the drop shadow effect in Dp.
+ * @param buttonColor The primary color of the button.
+ * @param buttonStrokeColor The color of the button's stroke (outline).
+ * @param buttonRightColor The color used for the right shadow of the button.
+ * @param buttonBottomColor The color used for the left shadow of the button.
+ * @param buttonStrokeWidth The width of the button's stroke in Dp.
+ * @param enabled Whether the button is enabled or disabled.
+ * @param animationSpec The animation specification for the button's press effect.
+ * @param onClick A callback function that is invoked when the button is clicked.
+ * @param content The content to be displayed within the button.
+ */
 @Composable
 fun NeoPopButton(
     modifier: Modifier = Modifier,
