@@ -1,8 +1,12 @@
 ## What is this library?
 A small UI library built with Jetpack compose that contains the NeoPOP design style(3D) components.
 
-### NeoPopButton
-![1007-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/1c941865-7e60-42c2-b267-2f146bee0d10)
+## Components
+
+| NeoPopButton  | NeoPop3DPressableContent | NeoPopBottomSheetContainer | 
+| ------------- | ------------- | ------------- |
+| ![1007-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/1c941865-7e60-42c2-b267-2f146bee0d10)  | ![button](https://github.com/user-attachments/assets/486fa31f-7a46-44ed-84a8-6360d8e37ae9) | ![sheet](https://github.com/user-attachments/assets/1c0a7210-c357-47bd-868b-51adc1219f7e) | 
+
 
 ## How to Install?
 1. Open your Project's settings.grale file.
