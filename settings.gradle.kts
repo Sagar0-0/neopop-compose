@@ -20,5 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "neopop-compose"
-include(":app")
 include(":neopop-compose")
