@@ -3,9 +3,13 @@ A small UI library built with Jetpack compose that contains the NeoPOP design st
 
 ## Components
 
-| NeoPopButton  | NeoPop3DPressableContent | NeoPopBottomSheetContainer | 
+| NeoPopButton Primary | NeoPop3DPressableContent | NeoPopBottomSheetContainer |
 | ------------- | ------------- | ------------- |
-| ![1007-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/1c941865-7e60-42c2-b267-2f146bee0d10)  | ![button](https://github.com/user-attachments/assets/486fa31f-7a46-44ed-84a8-6360d8e37ae9) | ![sheet](https://github.com/user-attachments/assets/1c0a7210-c357-47bd-868b-51adc1219f7e) | 
+| <img src="https://github.com/user-attachments/assets/1c941865-7e60-42c2-b267-2f146bee0d10" alt="NeoPopButton" width="300"/> | ![NeoPop3DPressableContent](https://github.com/user-attachments/assets/486fa31f-7a46-44ed-84a8-6360d8e37ae9) |  ![NeoPopBottomSheetContainer](https://github.com/user-attachments/assets/1c0a7210-c357-47bd-868b-51adc1219f7e) |
+
+| NeoPopButtonRotatedX | 
+| ------------- |
+| <img src="https://github.com/user-attachments/assets/b7462fc7-e6a8-4d04-8774-0edf137689ee" alt="NeoPopButtonRotatedX" width="100%"/> |
 
 
 ## How to Install?
