@@ -18,9 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
@@ -152,15 +154,166 @@ fun NeoPopButton(
     ) {
         Box(
             modifier = Modifier
-                .offset {
-                    IntOffset(
-                        x = buttonAnimatedOffset
-                            .toPx()
-                            .toInt(),
-                        y = buttonAnimatedOffset
-                            .toPx()
-                            .toInt()
+                .graphicsLayer {
+                    translationX = buttonAnimatedOffset.toPx()
+                    translationY = buttonAnimatedOffset.toPx()
+                }
+        ) {
+            content()
+        }
+    }
+}
+
+/**
+ * Creates a NeoPop style button with a subtle drop shadow effect.
+ *
+ * @param modifier A modifier to apply to the button.
+ * @param buttonDropHeight The height of the drop shadow effect in Dp.
+ * @param buttonColors The primary colors of the button.
+ * @param buttonStrokeColors The colors of the button's stroke (outline).
+ * @param buttonRightColors The colors used for the right shadow of the button.
+ * @param buttonBottomColors The colors used for the left shadow of the button.
+ * @param buttonStrokeWidth The width of the button's stroke in Dp.
+ * @param enabled Whether the button is enabled or disabled.
+ * @param animationSpec The animation specification for the button's press effect.
+ * @param onClick A callback function that is invoked when the button is clicked.
+ * @param content The content to be displayed within the button.
+ */
+@Composable
+fun NeoPopButton(
+    modifier: Modifier = Modifier,
+    buttonDropHeight: Dp = 3.dp,
+    buttonColors: Brush = Brush.verticalGradient(
+        listOf(
+            Color.White,
+            Color.White,
+        )
+    ),
+    buttonStrokeColors: Brush = Brush.verticalGradient(
+        listOf(
+            Color.White,
+            Color.White,
+        )
+    ),
+    buttonRightColors: Brush = Brush.verticalGradient(
+        listOf(
+            Color.White,
+            Color.White,
+        )
+    ),
+    buttonBottomColors: Brush = Brush.verticalGradient(
+        listOf(
+            Color.White,
+            Color.White,
+        )
+    ),
+    buttonStrokeWidth: Dp = 0.3.dp,
+    enabled: Boolean = true,
+    animationSpec: AnimationSpec<Dp> = spring(visibilityThreshold = Dp.VisibilityThreshold),
+    onClick: () -> Unit,
+    content: @Composable () -> Unit
+) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isButtonPressed by interactionSource.collectIsPressedAsState()
+
+    val buttonAnimatedOffset by animateDpAsState(
+        targetValue = if (isButtonPressed) buttonDropHeight else 0.dp,
+        label = "",
+        animationSpec = animationSpec
+    )
+
+    val buttonAnimatedDropHeight = remember(buttonAnimatedOffset) {
+        buttonDropHeight - buttonAnimatedOffset
+    }
+
+    var buttonHeightAsPx by remember {
+        mutableFloatStateOf(0f)
+    }
+    var buttonWidthAsPx by remember {
+        mutableFloatStateOf(0f)
+    }
+
+    Box(
+        modifier = modifier
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null,
+                enabled = enabled
+            ) {
+                onClick()
+            }
+            .onGloballyPositioned { coordinates ->
+                // Set column height using the LayoutCoordinates
+                buttonHeightAsPx = coordinates.size.height.toFloat()
+                buttonWidthAsPx = coordinates.size.width.toFloat()
+            }
+            .drawWithCache {
+                onDrawBehind {
+                    val offsetAsPx = buttonAnimatedOffset.toPx()
+
+                    // Button TopView
+                    drawRect(
+                        brush = buttonColors,
+                        topLeft = Offset(x = offsetAsPx, y = offsetAsPx),
+                        size = Size(width = buttonWidthAsPx, height = buttonHeightAsPx),
                     )
+                    // Stroke in Button TopView
+                    drawRect(
+                        brush = buttonStrokeColors,
+                        topLeft = Offset(x = offsetAsPx, y = offsetAsPx),
+                        size = Size(width = buttonWidthAsPx, height = buttonHeightAsPx),
+                        style = Stroke(buttonStrokeWidth.toPx())
+                    )
+
+                    // RightView of the Button (3D effect)
+                    val rightPath = Path()
+                    rightPath.moveTo(x = offsetAsPx + buttonWidthAsPx, y = offsetAsPx)
+                    rightPath.lineTo(
+                        x = offsetAsPx + buttonWidthAsPx + buttonAnimatedDropHeight.toPx(),
+                        y = offsetAsPx + buttonAnimatedDropHeight.toPx()
+                    )
+                    rightPath.lineTo(
+                        x = buttonWidthAsPx + offsetAsPx + buttonAnimatedDropHeight.toPx(),
+                        y = buttonHeightAsPx + offsetAsPx + buttonAnimatedDropHeight.toPx()
+                    )
+                    rightPath.lineTo(
+                        x = buttonWidthAsPx + offsetAsPx,
+                        y = buttonHeightAsPx + offsetAsPx
+                    )
+                    rightPath.close()
+                    drawPath(
+                        path = rightPath,
+                        brush = buttonRightColors
+                    )
+
+                    // BottomView of the Button (3D effect)
+                    val bottomPath = Path()
+                    bottomPath.moveTo(x = offsetAsPx, y = offsetAsPx + buttonHeightAsPx)
+                    bottomPath.lineTo(
+                        x = offsetAsPx + buttonAnimatedDropHeight.toPx(),
+                        y = offsetAsPx + buttonHeightAsPx + buttonAnimatedDropHeight.toPx()
+                    )
+                    bottomPath.lineTo(
+                        x = buttonWidthAsPx + offsetAsPx + buttonAnimatedDropHeight.toPx(),
+                        y = buttonHeightAsPx + offsetAsPx + buttonAnimatedDropHeight.toPx()
+                    )
+                    bottomPath.lineTo(
+                        x = buttonWidthAsPx + offsetAsPx,
+                        y = buttonHeightAsPx + offsetAsPx
+                    )
+                    bottomPath.close()
+                    drawPath(
+                        path = bottomPath,
+                        brush = buttonBottomColors
+                    )
+                }
+            }
+    ) {
+        Box(
+            modifier = Modifier
+                .graphicsLayer {
+                    translationX = buttonAnimatedOffset.toPx()
+                    translationY = buttonAnimatedOffset.toPx()
                 }
         ) {
             content()
