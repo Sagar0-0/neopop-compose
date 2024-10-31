@@ -44,13 +44,13 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun NeoPopButtonRotatedXShadowed(
+    buttonColor: Color,
+    shadowColor: Color,
+    buttonStrokeColor: Color,
+    buttonDropColor: Color,
     modifier: Modifier = Modifier,
     buttonDropHeight: Dp = 5.dp,
     shadowDropHeight: Dp = 5.dp,
-    buttonColor: Color = Color.Black,
-    shadowColor: Color = Color.Black.copy(0.8f),
-    buttonStrokeColor: Color = Color(0xFF6EB11C),
-    buttonDropColor: Color = Color(0xFF6EB11C),
     buttonStrokeWidth: Dp = 0.3.dp,
     buttonRotationValue: Dp = 10.dp,
     enabled: Boolean = true,
@@ -221,33 +221,13 @@ fun NeoPopButtonRotatedXShadowed(
  */
 @Composable
 fun NeoPopButtonRotatedXShadowed(
+    buttonColors: Brush,
+    shadowColors: Brush,
+    buttonStrokeColors: Brush,
+    buttonDropColors: Brush,
     modifier: Modifier = Modifier,
     buttonDropHeight: Dp = 5.dp,
     shadowDropHeight: Dp = 5.dp,
-    buttonColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    shadowColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    buttonStrokeColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    buttonDropColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
     buttonStrokeWidth: Dp = 0.3.dp,
     buttonRotationValue: Dp = 10.dp,
     enabled: Boolean = true,

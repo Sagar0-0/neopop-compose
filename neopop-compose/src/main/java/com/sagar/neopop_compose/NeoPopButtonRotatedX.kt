@@ -42,11 +42,11 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun NeoPopButtonRotatedX(
+    buttonColor: Color,
+    buttonStrokeColor: Color,
+    buttonDropColor: Color,
     modifier: Modifier = Modifier,
     buttonDropHeight: Dp = 5.dp,
-    buttonColor: Color = Color.White,
-    buttonStrokeColor: Color = Color.White,
-    buttonDropColor: Color = Color.Gray,
     buttonStrokeWidth: Dp = 0.3.dp,
     buttonRotationValue: Dp = 10.dp,
     enabled: Boolean = true,
@@ -192,26 +192,11 @@ fun NeoPopButtonRotatedX(
  */
 @Composable
 fun NeoPopButtonRotatedX(
+    buttonColors: Brush,
+    buttonStrokeColors: Brush,
+    buttonDropColors: Brush,
     modifier: Modifier = Modifier,
     buttonDropHeight: Dp = 5.dp,
-    buttonColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    buttonStrokeColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    buttonDropColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.Gray,
-            Color.Gray,
-        )
-    ),
     buttonStrokeWidth: Dp = 0.3.dp,
     buttonRotationValue: Dp = 10.dp,
     enabled: Boolean = true,

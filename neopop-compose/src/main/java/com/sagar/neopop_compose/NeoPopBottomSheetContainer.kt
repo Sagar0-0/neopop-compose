@@ -45,48 +45,18 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun NeoPopBottomSheetContainer(
+    containerColors: Brush,
+    containerStrokeColors: Brush,
+    containerTopColors: Brush,
+    dragHandleColors: Brush,
+    dragHandleShadowColors: Brush,
+    dragHandleStrokeColors: Brush,
     modifier: Modifier = Modifier,
     containerTopShadowHeight: Dp = 5.dp,
-    containerColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.Gray,
-        )
-    ),
-    containerStrokeColors: Brush = Brush.sweepGradient(
-        listOf(
-            Color.LightGray,
-            Color.Gray,
-        )
-    ),
-    containerTopColors: Brush = Brush.sweepGradient(
-        listOf(
-            Color.LightGray,
-            Color.Gray,
-        )
-    ),
     containerStrokeWidth: Dp = 0.dp,
     isDragHandleVisible: Boolean = true,
     dragHandleSize: DpSize = DpSize(60.dp, 10.dp),
     dragHandleTopPadding: Dp = 20.dp,
-    dragHandleColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.LightGray,
-        )
-    ),
-    dragHandleShadowColors: Brush = Brush.sweepGradient(
-        listOf(
-            Color.LightGray,
-            Color.Gray,
-        )
-    ),
-    dragHandleStrokeColors: Brush = Brush.sweepGradient(
-        listOf(
-            Color.LightGray,
-            Color.Gray,
-        )
-    ),
     dragHandleTopShadowHeight: Dp = 5.dp,
     dragHandleStrokeWidth: Dp = 0.2.dp,
     content: @Composable BoxScope.() -> Unit
@@ -249,18 +219,18 @@ fun NeoPopBottomSheetContainer(
  */
 @Composable
 fun NeoPopBottomSheetContainer(
+    containerColor: Color,
+    containerStrokeColor: Color,
+    containerTopColor: Color,
+    dragHandleColor: Color,
+    dragHandleShadowColor: Color,
+    dragHandleStrokeColor: Color,
     modifier: Modifier = Modifier,
     containerTopShadowHeight: Dp = 5.dp,
-    containerColor: Color = Color.White,
-    containerStrokeColor: Color = Color.White,
-    containerTopColor: Color = Color.White,
     containerStrokeWidth: Dp = 0.dp,
     isDragHandleVisible: Boolean = true,
     dragHandleSize: DpSize = DpSize(60.dp, 10.dp),
     dragHandleTopPadding: Dp = 20.dp,
-    dragHandleColor: Color = Color.White,
-    dragHandleShadowColor: Color = Color.White,
-    dragHandleStrokeColor: Color = Color.White,
     dragHandleTopShadowHeight: Dp = 5.dp,
     dragHandleStrokeWidth: Dp = 0.2.dp,
     content: @Composable BoxScope.() -> Unit

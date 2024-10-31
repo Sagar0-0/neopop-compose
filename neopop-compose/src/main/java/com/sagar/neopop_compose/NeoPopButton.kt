@@ -45,12 +45,12 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun NeoPopButton(
+    buttonColor: Color,
+    buttonStrokeColor: Color,
+    buttonRightColor: Color,
+    buttonBottomColor: Color,
     modifier: Modifier = Modifier,
     buttonDropHeight: Dp = 3.dp,
-    buttonColor: Color = Color.Black,
-    buttonStrokeColor: Color = Color.Green,
-    buttonRightColor: Color = Color(0xFF6EB11C),
-    buttonBottomColor: Color = Color(0xFF3D6011),
     buttonStrokeWidth: Dp = 0.3.dp,
     enabled: Boolean = true,
     animationSpec: AnimationSpec<Dp> = spring(visibilityThreshold = Dp.VisibilityThreshold),
@@ -181,32 +181,12 @@ fun NeoPopButton(
  */
 @Composable
 fun NeoPopButton(
+    buttonColors: Brush,
+    buttonStrokeColors: Brush,
+    buttonRightColors: Brush,
+    buttonBottomColors: Brush,
     modifier: Modifier = Modifier,
     buttonDropHeight: Dp = 3.dp,
-    buttonColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    buttonStrokeColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    buttonRightColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
-    buttonBottomColors: Brush = Brush.verticalGradient(
-        listOf(
-            Color.White,
-            Color.White,
-        )
-    ),
     buttonStrokeWidth: Dp = 0.3.dp,
     enabled: Boolean = true,
     animationSpec: AnimationSpec<Dp> = spring(visibilityThreshold = Dp.VisibilityThreshold),
