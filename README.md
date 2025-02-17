@@ -36,7 +36,7 @@ dependencyResolutionManagement {
 ```
 dependencies {
     ...
-    implementation("com.github.Sagar0-0:neopop-compose:1.0.0")// Add this with latest version
+    implementation("com.github.Sagar0-0:neopop-compose:1.3.1")// Add this with latest version
 }
 ```
 5. Enjoy using NeoPOP components
