@@ -17,7 +17,7 @@ A small UI library built with Jetpack compose that contains the NeoPOP design st
 
 
 ## How to Install?
-1. Open your Project's settings.gradle file.
+1. Open your Project's `settings.gradle` file.
 2. Add the following...
 ```
 dependencyResolutionManagement {
