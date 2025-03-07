@@ -1,4 +1,4 @@
-## What is this library?
+## What is in this library?
 A small UI library built with Jetpack compose that contains the NeoPOP design style(3D) components.
 
 ## Components
